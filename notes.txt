@@ -1,0 +1,18 @@
+chapter 3
+
+// const heading = React.createElement("h1", { id: "heading" }, "Namaste React");
+
+//JSX - HTML-like or XML like syntax  --> transpile before it reaches js engine  -- PARCEL -- Babel
+
+// const jsxHeading = <h1 id="heading">Namaste React Using JSX</h1>;
+
+// const HeadingComponent = () => {
+//   return <h1>Namaste React Functional Component</h1>;
+// };
+
+//React Element
+// const heading = (
+//   <h1 className="head" tabIndex="5">
+//     Namaste React using JSX
+//   </h1>
+// );
