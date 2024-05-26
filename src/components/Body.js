@@ -17,15 +17,28 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
+    //bangalore 
+    // const data = await fetch(
+    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+    // );
+
+    //delhi
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65200&lng=77.16630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
 
     // Optional Chaining
-    setListOfRestraunt(json?.data?.cards[4]?.data?.data?.cards);
-    setFilteredRestaurant(json?.data?.cards[4]?.data?.data?.cards);
+    // setListOfRestraunt(json?.data?.cards[4]?.data?.data?.cards);
+    // setFilteredRestaurant(json?.data?.cards[4]?.data?.data?.cards);
+
+    setListOfRestraunt(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle.restaurants
+    );
   };
 
   return listOfRestaurants?.length === 0 ? (
@@ -72,7 +85,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>
