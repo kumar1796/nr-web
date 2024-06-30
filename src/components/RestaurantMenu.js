@@ -9,18 +9,21 @@ const RestaurantMenu = () => {
 
   if (resInfo === null) return <Shimmer />;
 
+  // console.log("resInfo==", resInfo);
+
   const { name, cuisines, costForTwoMessage } =
-    resInfo?.data?.cards[2]?.card?.card?.info;
+    resInfo?.cards[2]?.card?.card?.info;
 
-  const itemCards =
-    resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card?.itemCards;
+  const { itemCards } =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
-  //   console.log("itemCards===", itemCards);
+  console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
-  //   itemCards.map((item) => {
-  //     console.log(item?.card?.info?.name);
-  //   });
+  // console.log("itemCards===", itemCards);
+
+  // itemCards.map((item) => {
+  //   console.log(item?.card?.info?.name);
+  // });
 
   return (
     <div className="menu">
